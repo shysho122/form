@@ -1,7 +1,7 @@
 const form = document.getElementById('myform');
 const username = document.getElementById('username');
-const pin = document.getElementById('pin');
-const pin2 = document.getElementById('pin2');
+const zip = document.getElementById('zip');
+const zip2 = document.getElementById('zip2');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -31,32 +31,32 @@ const setSuccess = element => {
 
 const validateInputs = () => {
     const usernameValue = username.value.trim();
-    const pinValue = pin.value.trim();
-    const pin2Value = pin2.value.trim();
+    const zipValue = zip.value.trim();
+    const zip2Value = zip2.value.trim();
 
     if(usernameValue === '') {
         setError(username, 'first and last name is required');
-    } else if (usernameValue.length < 20 ) {
-        setError(username, 'username must be at least 20 character.')
+    } else if (usernameValue.length > 20 ) {
+        setError(username, 'username must be less than 20 character.')
     } else {
         setSuccess(username);
     }
 
 
-    if(pinValue === '') {
-        setError(pin, 'pin is required');
+    if(zipValue === '') {
+        setError(zip, 'zip is required');
     } else if (pinValue.length < 5 ) {
-        setError(pin, 'pin must be at least 5 character.')
+        setError(zip, 'zip must be at least 5 character.')
     } else {
-        setSuccess(pin);
+        setSuccess(zip);
     }
 
-    if(pin2Value === '') {
-        setError(pin2, 'Please confirm your pin');
-    } else if (pin2Value !== pinValue) {
-        setError(pin2, "pin doesn't match");
+    if(zip2Value === '') {
+        setError(zip2, 'Please confirm your zip');
+    } else if (zip2Value !== pinValue) {
+        setError(zip2, "zip doesn't match");
     } else {
-        setSuccess(pin2);
+        setSuccess(zip2);
     }
 
 
